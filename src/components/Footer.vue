@@ -1,12 +1,9 @@
 <template>
   <footer class="footer">
-    <p>© 2026 Мой сайт. Все права защищены.</p>
+    <p>©</p>
   </footer>
 </template>
 
-<script setup>
-// Этот блок должен быть, даже если он пустой
-</script>
 
 <style scoped>
 .footer {
