@@ -1,19 +1,20 @@
 <template>
-  <section class="directions-section">
-    <div class="directions-section__inner">
-      <h2 class="section-heading">Направления тренировок</h2>
-      <p class="section-subheading">Выберите то, что подходит именно вам</p>
-      <div class="directions-section__grid">
-        <div v-for="item in directions" :key="item.title" class="direction-card">
-          <h3 class="direction-card__title">{{ item.title }}</h3>
-          <p class="direction-card__text">{{ item.text }}</p>
+  <section class="directions">
+    <div class="directions__inner">
+      <h2 class="directions__title">Направления тренировок</h2>
+      <p class="directions__subtitle">Выберите то, что подходит именно вам</p>
+      
+      <div class="directions__grid">
+        <div v-for="item in directions" :key="item.title" class="card">
+          <h3 class="card__title">{{ item.title }}</h3>
+          <p class="card__text">{{ item.text }}</p>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const directions = [
   { title: 'Кроссфит', text: 'Высокоинтенсивные функциональные тренировки для развития силы и выносливости' },
   { title: 'Йога', text: 'Гармония тела и разума через асаны, дыхательные практики и медитацию' },
@@ -25,79 +26,68 @@ const directions = [
 </script>
 
 <style scoped>
-.directions-section {
+.directions {
   padding: 100px 24px;
   background: #faf8ff;
 }
 
-.directions-section__inner {
+.directions__inner {
   max-width: 1120px;
   margin: 0 auto;
 }
 
-.section-heading {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+.directions__title {
+  font-size: 40px;
   font-weight: 800;
   color: #1e1b2e;
-  margin: 0 0 12px;
-  letter-spacing: -0.01em;
   text-align: center;
+  margin-bottom: 12px;
+  letter-spacing: -0.16px;
 }
 
-.section-subheading {
-  font-size: 1.05rem;
+.directions__subtitle {
+  font-size: 17px;
   color: #6b7280;
-  margin: 0 0 56px;
   text-align: center;
+  margin-bottom: 56px;
 }
 
-.directions-section__grid {
+.directions__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.direction-card {
+.card {
   background: #fff;
   padding: 36px 28px;
   border-radius: 20px;
   border: 1px solid #ede9fe;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s;
 }
 
-.direction-card:hover {
+.card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 40px rgba(124, 58, 237, 0.1);
   border-color: #c4b5fd;
 }
 
-.direction-card__title {
-  font-size: 1.2rem;
+.card__title {
+  font-size: 19px;
   font-weight: 700;
   color: #1e1b2e;
-  margin: 0 0 10px;
+  margin-bottom: 10px;
 }
 
-.direction-card__text {
-  font-size: 0.9rem;
+.card__text {
+  font-size: 14px;
   color: #6b7280;
   line-height: 1.6;
-  margin: 0;
 }
 
 @media (max-width: 900px) {
-  .directions-section__grid {
+  .directions__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .directions-section {
-    padding: 64px 16px;
-  }
-
-  .directions-section__grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>

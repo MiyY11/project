@@ -4,7 +4,7 @@
     <DirectionsSection />
     <ServicesSection />
     <TrainersSection />
-    <CtaSection />
+    <PromoBanner />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import HeroSection from '../components/HeroSection.vue'
 import DirectionsSection from '../components/DirectionsSection.vue'
 import ServicesSection from '../components/ServicesSection.vue'
 import TrainersSection from '../components/TrainersSection.vue'
-import CtaSection from '../components/CtaSection.vue'
+import PromoBanner from '../components/PromoBanner.vue'
 </script>
 
 <style scoped>
