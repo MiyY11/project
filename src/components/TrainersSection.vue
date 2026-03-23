@@ -56,16 +56,15 @@ const trainers = [
 }
 
 .section-heading {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: 28px;
   font-weight: 800;
   color: #1e1b2e;
   margin: 0 0 12px;
-  letter-spacing: -0.01em;
   text-align: center;
 }
 
 .section-subheading {
-  font-size: 1.05rem;
+  font-size: 16px;
   color: #6b7280;
   margin: 0 0 56px;
   text-align: center;
@@ -97,7 +96,7 @@ const trainers = [
   border-radius: 50%;
   background: linear-gradient(135deg, #7c3aed, #a78bfa);
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 22px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -106,7 +105,7 @@ const trainers = [
 }
 
 .trainer-card__name {
-  font-size: 1.05rem;
+  font-size: 16px;
   font-weight: 700;
   color: #1e1b2e;
   margin: 0 0 6px;
@@ -114,7 +113,7 @@ const trainers = [
 
 .trainer-card__role {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: 12px;
   font-weight: 600;
   color: #7c3aed;
   background: #ede9fe;
@@ -124,7 +123,7 @@ const trainers = [
 }
 
 .trainer-card__bio {
-  font-size: 0.85rem;
+  font-size: 14px;
   color: #6b7280;
   line-height: 1.6;
   margin: 0;
