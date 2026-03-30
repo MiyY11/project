@@ -26,7 +26,7 @@ const services = [
 <style scoped>
 .services-section {
   padding: 100px 24px;
-  background: linear-gradient(160deg, #4c1d95, #6d28d9, #7c3aed);
+  background: var(--gradient-primary);
   text-align: center;
 }
 
@@ -36,19 +36,16 @@ const services = [
 }
 
 .section-heading {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: 40px;
   font-weight: 800;
-  color: #fff;
-  margin: 0 0 12px;
-  letter-spacing: -0.01em;
-  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 12px;
 }
 
 .section-subheading {
-  font-size: 1.05rem;
+  font-size: 16px;
   color: var(--color-text-muted);
-  margin: 0 0 56px;
-  text-align: center;
+  margin-bottom: 56px;
 }
 
 .services-section__grid {
@@ -58,51 +55,41 @@ const services = [
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--bg-glass);
   padding: 40px 32px;
   border-radius: 20px;
   text-align: left;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: 0.2s;
 }
 
 .service-card:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: var(--bg-glass-hover);
   transform: translateY(-4px);
 }
 
 .service-card__number {
-  font-size: 2.5rem;
+  font-size: 40px;
   font-weight: 800;
-  color: rgba(252, 251, 255, 0.4);
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 12px;
-  line-height: 1;
 }
 
 .service-card__title {
-  font-size: 1.2rem;
-  color: #fff;
-  margin: 0 0 10px;
+  font-size: 20px;
   font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 8px;
 }
 
 .service-card__text {
+  font-size: 14px;
   color: var(--color-text-muted);
-  line-height: 1.65;
   margin: 0;
-  font-size: 0.92rem;
 }
 
 @media (max-width: 900px) {
   .services-section__grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .services-section {
-    padding: 64px 16px;
   }
 }
 </style>

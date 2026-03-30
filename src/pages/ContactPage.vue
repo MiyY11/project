@@ -19,12 +19,7 @@
         <p><a href="mailto:InFlow@mail.ru" class="ContactLink">InFlow@mail.ru</a></p>
       </div>
       <div class="MapSquare">
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?ll=56.126568,40.404603&z=16&pt=56.126568,40.404603,pmrdm"
-          loading="lazy"
-          width="100%"
-          height="100%"
-        ></iframe>
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=56.126568,40.404603&z=16" loading="lazy" width="100%" height="100%"></iframe>
       </div>
     </section>
 
@@ -32,27 +27,45 @@
       <div v-for="block in blocks" :key="block.title" class="Block">
         <h3>{{ block.title }}</h3>
         <p>{{ block.desc }}</p>
-        <button class="BlockBtn">{{ block.btn }}</button>
+        <button @click="openModal(block.title)" class="BlockBtn">{{ block.btn }}</button>
       </div>
     </section>
+
+    <ModalForm v-model="isModalOpen" :title="modalTitle" @close="isModalOpen = false" @submit="onSubmit" />
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import ModalForm from '@/components/ModalForm.vue'
+
 const workingHours = [
   { days: 'Понедельник – Пятница', hours: '08:00 – 23:00' },
   { days: 'Суббота – Воскресенье', hours: '10:00 – 20:00' }
 ]
 
 const blocks = [
-  { title: 'Связаться с нами', desc: 'Мы ждем каждого желающего стать частью нашего спортивного сообщества. Присоединяйтесь к нам!', btn: 'Связаться' },
+  { title: 'Связаться с нами', desc: 'Мы ждем каждого желающего стать частью нашего спортивного сообщества.', btn: 'Связаться' },
   { title: 'Работать у нас', desc: 'Мы в поиске ответственных сотрудников, готовых работать в нашей дружной команде.', btn: 'Откликнуться' }
 ]
+
+const isModalOpen = ref(false)
+const modalTitle = ref('')
+
+const openModal = (title) => {
+  modalTitle.value = title
+  isModalOpen.value = true
+}
+
+const onSubmit = (data) => {
+  alert(`Спасибо! Мы свяжемся с вами: +7 ${data.phone}`)
+  isModalOpen.value = false
+}
 </script>
 
 <style scoped>
 .contact-page {
-  background: linear-gradient(160deg, #4c1d95, #6126bf, #6e34d2);
+  background: var(--gradient-primary);
   min-height: 100dvh;
   padding-bottom: 60px;
 }
@@ -65,7 +78,7 @@ const blocks = [
 .WorkingTime h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .WorkingTime-box {
@@ -76,11 +89,11 @@ const blocks = [
 }
 
 .WorkingTime-item {
-  color: #fff;
+  color: var(--color-white);
 }
 
 .WorkingTime-item span {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .MapAddressBlock {
@@ -95,7 +108,7 @@ const blocks = [
 
 .AddressText {
   flex: 1;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-glass);
   padding: 20px;
   text-align: center;
   border-radius: 12px;
@@ -104,11 +117,11 @@ const blocks = [
 .AddressText h3 {
   font-size: 18px;
   margin-bottom: 8px;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .AddressText p {
-  color: #fff;
+  color: var(--color-white);
   margin: 4px 0;
 }
 
@@ -119,10 +132,8 @@ const blocks = [
 }
 
 .ContactLink {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
-  display: inline-block;
-  margin: 4px 0;
 }
 
 .ContactLink:hover {
@@ -148,38 +159,50 @@ const blocks = [
 
 .Block {
   flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
+  background: var(--bg-glass);
+  padding: 24px;
   text-align: center;
   border-radius: 12px;
 }
 
 .Block h3 {
-  font-size: 22px;
-  color: #fff;
-  margin: 0 0 16px;
+  font-size: 20px;
+  color: var(--color-white);
+  margin-bottom: 12px;
 }
 
 .Block p {
-  color: #cbd5e1;
-  line-height: 1.5;
-  margin: 0 0 24px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
 }
 
 .BlockBtn {
-  background: #fff;
-  color: #4c1d95;
+  padding: 12px 24px;
+  background: var(--color-white);
+  color: var(--color-primary);
   border: none;
-  padding: 12px 30px;
+  border-radius: 24px;
   font-weight: 600;
-  border-radius: 30px;
+  font-size: 14px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .BlockBtn:hover {
-  background: #a78bfa;
-  color: #fff;
+  background: var(--color-primary-light);
+  color: var(--color-white);
   transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .MapAddressBlock,
+  .TwoBlocks {
+    flex-direction: column;
+  }
+  
+  .MapSquare {
+    width: 100%;
+    height: 250px;
+  }
 }
 </style>
