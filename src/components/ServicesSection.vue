@@ -46,7 +46,7 @@ const services = [
 
 .section-subheading {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-text-muted);
   margin: 0 0 56px;
   text-align: center;
 }
@@ -88,7 +88,7 @@ const services = [
 }
 
 .service-card__text {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-text-muted);
   line-height: 1.65;
   margin: 0;
   font-size: 0.92rem;

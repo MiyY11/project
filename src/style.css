@@ -10,13 +10,27 @@
   font-family: 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
   color: #333;
   background-color: #fff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-primary: #4c1d95;
+  --color-primary-light: #7c3aed;
+  --color-white: #ffffff;
+  --color-black: #1e1b2e;
+  --color-text-muted: rgba(255, 255, 255, 0.65);
+
+  --gradient-primary: linear-gradient(160deg, #4c1d95, #6126bf, #6e34d2);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-glass-hover: rgba(255, 255, 255, 0.14);
+  --radius-md: 20px;
 }
+
 
 body {
   min-width: 320px;

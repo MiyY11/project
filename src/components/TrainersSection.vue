@@ -47,7 +47,8 @@ const trainers = [
 <style scoped>
 .trainers-section {
   padding: 100px 24px;
-  background: #fff;
+  background: var(--gradient-primary);
+  text-align: center;
 }
 
 .trainers-section__inner {
@@ -56,92 +57,80 @@ const trainers = [
 }
 
 .section-heading {
-  font-size: 28px;
+  font-size: 40px;
   font-weight: 800;
-  color: #1e1b2e;
-  margin: 0 0 12px;
-  text-align: center;
+  color: var(--color-white);
+  margin-bottom: 12px;
 }
 
 .section-subheading {
-  font-size: 16px;
-  color: #6b7280;
-  margin: 0 0 56px;
-  text-align: center;
+  font-size: 17px;
+  color: var(--color-text-muted);
+  margin-bottom: 56px;
 }
 
 .trainers-section__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
 .trainer-card {
+  background: var(--bg-glass);
+  padding: 32px 24px;
+  border-radius: var(--radius-md);
   text-align: center;
-  padding: 40px 20px;
-  border-radius: 20px;
-  background: #faf8ff;
-  border: 1px solid #ede9fe;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s;
 }
 
 .trainer-card:hover {
+  background: var(--bg-glass-hover);
   transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(124, 58, 237, 0.12);
 }
 
 .trainer-card__avatar {
   width: 80px;
   height: 80px;
+  margin: 0 auto 16px;
+  background: var(--color-primary-light);
+  border: 2px solid var(--color-white);
   border-radius: 50%;
-  background: linear-gradient(135deg, #7c3aed, #a78bfa);
-  color: #fff;
-  font-size: 22px;
-  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.trainer-card:hover .trainer-card__avatar {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .trainer-card__name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
-  color: #1e1b2e;
-  margin: 0 0 6px;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.trainer-card__role,
+.trainer-card__bio {
+  color: var(--color-text-muted);
+  font-size: 14px;
 }
 
 .trainer-card__role {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  color: #7c3aed;
-  background: #ede9fe;
-  padding: 4px 12px;
-  border-radius: 50px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .trainer-card__bio {
-  font-size: 14px;
-  color: #6b7280;
-  line-height: 1.6;
   margin: 0;
 }
 
 @media (max-width: 900px) {
   .trainers-section__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .trainers-section {
-    padding: 64px 16px;
-  }
-
-  .trainers-section__grid {
-    grid-template-columns: 1fr;
   }
 }
 </style>

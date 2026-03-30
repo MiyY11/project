@@ -9,11 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import HeroSection from '../components/HeroSection.vue'
-import DirectionsSection from '../components/DirectionsSection.vue'
-import ServicesSection from '../components/ServicesSection.vue'
-import TrainersSection from '../components/TrainersSection.vue'
-import PromoBanner from '../components/PromoBanner.vue'
+import HeroSection from '@/components/HeroSection.vue'
+import DirectionsSection from '@/components/DirectionsSection.vue'
+import ServicesSection from '@/components/ServicesSection.vue'
+import TrainersSection from '@/components/TrainersSection.vue'
+import PromoBanner from '@/components/PromoBanner.vue'
 </script>
 
 <style scoped>
