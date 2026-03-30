@@ -25,8 +25,7 @@
   align-items: center;
   justify-content: center;
   background: url('/background.jpg') center/cover;
-  margin-top: -72px;
-  padding-top: 72px;
+  margin-top: 72px;
 }
 
 .hero__overlay {
