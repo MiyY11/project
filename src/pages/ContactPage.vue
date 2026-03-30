@@ -1,33 +1,33 @@
 <template>
-  <div class="contact-page">
-    <section class="WorkingTime">
+  <div class="contact">
+    <section class="schedule">
       <h2>График работы</h2>
-      <div class="WorkingTime-box">
-        <div v-for="item in workingHours" :key="item.days" class="WorkingTime-item">
+      <div class="schedule-list">
+        <div v-for="item in workingHours" :key="item.days" class="schedule-item">
           <strong>{{ item.days }}:</strong>
           <span>{{ item.hours }}</span>
         </div>
       </div>
     </section>
 
-    <section class="MapAddressBlock">
-      <div class="AddressText">
+    <section class="contacts">
+      <div class="info">
         <h3>Наш адрес</h3>
         <p>г. Владимир, ул. Пушкарская, 46</p>
         <p class="metro">Остановка: "Дворец творчества юных"</p>
-        <p><a href="tel:+79041234567" class="ContactLink">+7 (904) 123-45-67</a></p>
-        <p><a href="mailto:InFlow@mail.ru" class="ContactLink">InFlow@mail.ru</a></p>
+        <p><a href="tel:+79041234567" class="link">+7 (904) 123-45-67</a></p>
+        <p><a href="mailto:InFlow@mail.ru" class="link">InFlow@mail.ru</a></p>
       </div>
-      <div class="MapSquare">
+      <div class="map">
         <iframe src="https://yandex.ru/map-widget/v1/?ll=56.126568,40.404603&z=16" loading="lazy" width="100%" height="100%"></iframe>
       </div>
     </section>
 
-    <section class="TwoBlocks">
-      <div v-for="block in blocks" :key="block.title" class="Block">
+    <section class="actions">
+      <div v-for="block in blocks" :key="block.title" class="card">
         <h3>{{ block.title }}</h3>
         <p>{{ block.desc }}</p>
-        <button @click="openModal(block.title)" class="BlockBtn">{{ block.btn }}</button>
+        <button @click="openModal(block.title)" class="btn">{{ block.btn }}</button>
       </div>
     </section>
 
@@ -45,8 +45,8 @@ const workingHours = [
 ]
 
 const blocks = [
-  { title: 'Связаться с нами', desc: 'Мы ждем каждого желающего стать частью нашего спортивного сообщества.', btn: 'Связаться' },
-  { title: 'Работать у нас', desc: 'Мы в поиске ответственных сотрудников, готовых работать в нашей дружной команде.', btn: 'Откликнуться' }
+  { title: 'Связаться с нами', desc: 'Мы ждем каждого желающего.', btn: 'Связаться' },
+  { title: 'Работать у нас', desc: 'Мы в поиске сотрудников.', btn: 'Откликнуться' }
 ]
 
 const isModalOpen = ref(false)
@@ -64,39 +64,39 @@ const onSubmit = (data) => {
 </script>
 
 <style scoped>
-.contact-page {
+.contact {
   background: var(--gradient-primary);
   min-height: 100dvh;
   padding-bottom: 60px;
 }
 
-.WorkingTime {
+.schedule {
   padding: 80px 20px 40px;
   text-align: center;
 }
 
-.WorkingTime h2 {
+.schedule h2 {
   font-size: 24px;
   margin-bottom: 20px;
   color: var(--color-white);
 }
 
-.WorkingTime-box {
+.schedule-list {
   display: flex;
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
 }
 
-.WorkingTime-item {
+.schedule-item {
   color: var(--color-white);
 }
 
-.WorkingTime-item span {
+.schedule-item span {
   margin-left: 8px;
 }
 
-.MapAddressBlock {
+.contacts {
   max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
@@ -106,7 +106,7 @@ const onSubmit = (data) => {
   flex-wrap: wrap;
 }
 
-.AddressText {
+.info {
   flex: 1;
   background: var(--bg-glass);
   padding: 20px;
@@ -114,13 +114,13 @@ const onSubmit = (data) => {
   border-radius: 12px;
 }
 
-.AddressText h3 {
+.info h3 {
   font-size: 18px;
   margin-bottom: 8px;
   color: var(--color-white);
 }
 
-.AddressText p {
+.info p {
   color: var(--color-white);
   margin: 4px 0;
 }
@@ -131,16 +131,16 @@ const onSubmit = (data) => {
   margin-top: 8px;
 }
 
-.ContactLink {
+.link {
   color: var(--color-white);
   text-decoration: none;
 }
 
-.ContactLink:hover {
+.link:hover {
   text-decoration: underline;
 }
 
-.MapSquare {
+.map {
   width: 300px;
   height: 300px;
   flex-shrink: 0;
@@ -148,7 +148,7 @@ const onSubmit = (data) => {
   overflow: hidden;
 }
 
-.TwoBlocks {
+.actions {
   max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
@@ -157,7 +157,7 @@ const onSubmit = (data) => {
   flex-wrap: wrap;
 }
 
-.Block {
+.card {
   flex: 1;
   background: var(--bg-glass);
   padding: 24px;
@@ -165,18 +165,18 @@ const onSubmit = (data) => {
   border-radius: 12px;
 }
 
-.Block h3 {
+.card h3 {
   font-size: 20px;
   color: var(--color-white);
   margin-bottom: 12px;
 }
 
-.Block p {
+.card p {
   color: var(--color-text-muted);
   margin-bottom: 20px;
 }
 
-.BlockBtn {
+.btn {
   padding: 12px 24px;
   background: var(--color-white);
   color: var(--color-primary);
@@ -188,19 +188,19 @@ const onSubmit = (data) => {
   transition: 0.2s;
 }
 
-.BlockBtn:hover {
+.btn:hover {
   background: var(--color-primary-light);
   color: var(--color-white);
   transform: translateY(-2px);
 }
 
 @media (max-width: 900px) {
-  .MapAddressBlock,
-  .TwoBlocks {
+  .contacts,
+  .actions {
     flex-direction: column;
   }
   
-  .MapSquare {
+  .map {
     width: 100%;
     height: 250px;
   }
