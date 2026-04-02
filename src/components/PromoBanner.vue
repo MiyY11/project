@@ -14,7 +14,7 @@
 }
 
 .promo__title {
-  font-size: clamp(28px, 32px, 40px);
+  font-size: 32px;
   font-weight: 800;
   color: #fff;
   margin-bottom: 12px;
