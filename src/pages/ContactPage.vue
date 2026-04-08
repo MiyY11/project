@@ -31,7 +31,7 @@
       </div>
     </section>
 
-    <ModalForm v-model="isModalOpen" :title="modalTitle" @close="isModalOpen = false" @submit="onSubmit" />
+    <ModalForm v-model="isModalOpen" :title="modalTitle" @submit="onSubmit" />
   </div>
 </template>
 
@@ -57,9 +57,8 @@ const openModal = (title) => {
   isModalOpen.value = true
 }
 
-const onSubmit = (data) => {
-  alert(`Спасибо! Мы свяжемся с вами: +7 ${data.phone}`)
-  isModalOpen.value = false
+const onSubmit = ({ name, phone }) => {
+  alert(`Спасибо, ${name}! Мы свяжемся с вами: +7 ${phone}`)
 }
 </script>
 

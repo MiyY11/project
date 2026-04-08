@@ -47,7 +47,6 @@ const directions = [
 }
 
 .directions__subtitle {
-  font-size: 16px;
   color: var(--color-black);
   text-align: center;
   margin-bottom: 56px;

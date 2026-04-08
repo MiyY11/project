@@ -64,7 +64,6 @@ const trainers = [
 }
 
 .section-subheading {
-  font-size: 17px;
   color: var(--color-text-muted);
   margin-bottom: 56px;
 }

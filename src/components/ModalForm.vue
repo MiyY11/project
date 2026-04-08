@@ -1,29 +1,58 @@
 <template>
-  <div v-if="modelValue" class="modal" @click.self="$emit('close')">
+  <div v-if="props.modelValue" class="modal" @click.self="close">
     <div class="modal__content">
-      <button @click="$emit('close')" class="modal__close">&times;</button>
-      <h3>{{ title }}</h3>
-      <form @submit.prevent="onSubmit">
-        <input v-model="name" @input="name=name.replace(/[^а-яА-ЯёЁa-zA-Z\s]/g,'')" placeholder="Имя" required class="modal__input">
-        <input type="tel" v-model="phone" @input="phone=phone.replace(/\D/g,'').slice(0,11)" placeholder="79001234567" required class="modal__input">
-        <button type="submit" :disabled="phone.length!==11||name.length<2" class="modal__btn">Отправить</button>
+      <button class="modal__close" @click="close">&times;</button>
+      <h3>{{ props.title }}</h3>
+      <form @submit.prevent="submit">
+        <input
+          v-model="form.name"
+          @input="form.name = form.name.replace(/[^а-яА-ЯёЁa-zA-Z\s]/g, '')"
+          class="modal__input"
+          placeholder="Имя"
+          required
+        >
+        <input
+          v-model="form.phone"
+          @input="form.phone = form.phone.replace(/\D/g, '').slice(0, 11)"
+          class="modal__input"
+          placeholder="79001234567"
+          type="tel"
+          required
+        >
+        <button class="modal__btn" :disabled="!isValid" type="submit">
+          Отправить
+        </button>
       </form>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { reactive, computed } from 'vue'
 
-const props = defineProps(['modelValue', 'title'])
-const emit = defineEmits(['close', 'submit'])
-const name = ref('')
-const phone = ref('')
+const props = defineProps({
+  modelValue: Boolean,
+  title: String
+})
 
-const onSubmit = () => {
-  emit('submit', { name: name.value, phone: phone.value })
-  name.value = ''
-  phone.value = ''
+const emit = defineEmits(['update:modelValue', 'submit'])
+
+const form = reactive({ name: '', phone: '' })
+
+const isValid = computed(() =>
+  form.phone.length === 11 && form.name.length >= 2 && !/\d/.test(form.name)
+)
+
+const close = () => {
+  emit('update:modelValue', false)
+  form.name = ''
+  form.phone = ''
+}
+
+const submit = () => {
+  if (!isValid.value) return
+  emit('submit', { ...form })
+  close()
 }
 </script>
 
