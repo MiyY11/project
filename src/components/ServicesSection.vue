@@ -43,6 +43,7 @@ const services = [
 }
 
 .section-subheading {
+  font-size: 16px;
   color: var(--color-text-muted);
   margin-bottom: 56px;
 }
